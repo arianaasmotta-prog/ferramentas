@@ -158,6 +158,10 @@ main {
   padding: 0.2rem 0.65rem;
   border-radius: 20px;
 }
+.tag-print {
+  background: #fef9c3;
+  color: #854d0e;
+}
 .btn {
   display: block;
   text-align: center;
@@ -178,6 +182,27 @@ main {
   color: var(--navy);
 }
 .btn-gold:hover { background: var(--gold-light); }
+
+/* ── SEPARADOR DE SEÇÃO ── */
+.section-divider {
+  margin: 2.5rem 0 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.section-divider .label {
+  font-family: Arial, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.section-divider .line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
 
 /* ── FOOTER ── */
 footer {
@@ -262,6 +287,59 @@ footer a { color: var(--navy-light); text-decoration: none; }
           <span class="tag">Relatório automático</span>
         </div>
         <a class="btn btn-gold" href="https://arianaasmotta-prog.github.io/altas-habilidades/" target="_blank">Acessar ferramenta →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Seção: Checklists Imprimíveis -->
+  <div class="section-divider">
+    <div class="line"></div>
+    <div class="label">Checklists Imprimíveis</div>
+    <div class="line"></div>
+  </div>
+
+  <div class="grid">
+
+    <!-- Checklist Imprimível — Dislexia -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon">🖨️</div>
+        <div class="card-title">
+          <small>Checklist Imprimível</small>
+          Dislexia
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">Checklist clínico com 35 indicadores em 5 domínios — leitura, compreensão, ortografia, processamento fonológico e histórico. Tabela de pontuação por domínio, critérios de exclusão do DSM-5 e guia de interpretação. Pronto para imprimir ou salvar em PDF.</p>
+        <div class="card-tags">
+          <span class="tag">35 indicadores</span>
+          <span class="tag">5 domínios</span>
+          <span class="tag">Critérios DSM-5</span>
+          <span class="tag tag-print">🖨️ Imprimível</span>
+        </div>
+        <a class="btn btn-gold" href="checklist-dislexia.html" target="_blank">Abrir checklist →</a>
+      </div>
+    </div>
+
+    <!-- Checklist Imprimível — AH/SD -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon">🖨️</div>
+        <div class="card-title">
+          <small>Checklist Imprimível</small>
+          Altas Habilidades / Superdotação
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">Checklist clínico com 48 indicadores em 6 domínios — habilidade acima da média, comprometimento com a tarefa, criatividade, habilidades específicas por área, aspectos socioafetivos e histórico familiar. Baseado em Renzulli e MEC/SEESP. Pronto para imprimir ou salvar em PDF.</p>
+        <div class="card-tags">
+          <span class="tag">48 indicadores</span>
+          <span class="tag">6 domínios</span>
+          <span class="tag">Renzulli · MEC/SEESP</span>
+          <span class="tag tag-print">🖨️ Imprimível</span>
+        </div>
+        <a class="btn btn-gold" href="checklist-ah-sd.html" target="_blank">Abrir checklist →</a>
       </div>
     </div>
 

@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklist de Triagem para Dislexia</title>
+<style>
+  :root {
+    --navy: #1a3a5c;
+    --navy-light: #244f7d;
+    --gold: #c9982a;
+    --gold-light: #e8b84b;
+    --cream: #f8f5f0;
+    --white: #ffffff;
+    --text-dark: #1a202c;
+    --text-mid: #3d4a5c;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Arial, sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    min-height: 100vh;
+  }
+
+  /* ── TELA: Barra de ações ── */
+  .toolbar {
+    background: var(--navy);
+    padding: 0.75rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .toolbar-title {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+  }
+  .toolbar-actions { display: flex; gap: 0.75rem; }
+  .btn-print {
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+  }
+  .btn-print:hover { background: var(--gold-light); }
+  .btn-back {
+    background: transparent;
+    color: rgba(255,255,255,0.75);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .btn-back:hover { background: rgba(255,255,255,0.08); }
+
+  /* ── DOCUMENTO ── */
+  .doc-wrap {
+    max-width: 780px;
+    margin: 2rem auto;
+    padding: 0 1.5rem 3rem;
+  }
+
+  .doc-header {
+    background: var(--navy);
+    border-radius: 12px 12px 0 0;
+    padding: 2rem 2.5rem 1.8rem;
+    color: white;
+  }
+  .doc-header .tag {
+    display: inline-block;
+    background: rgba(201,152,42,0.2);
+    color: var(--gold-light);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 0.8rem;
+  }
+  .doc-header h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+    font-family: Georgia, serif;
+  }
+  .doc-header h1 span { color: var(--gold-light); }
+  .doc-header p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+    max-width: 560px;
+  }
+  .doc-header .divider {
+    width: 40px; height: 3px;
+    background: var(--gold);
+    border-radius: 2px;
+    margin-top: 1.2rem;
+  }
+
+  /* Ficha de identificação */
+  .id-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-top: none;
+    padding: 1.4rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem 2rem;
+  }
+  .id-field { display: flex; flex-direction: column; gap: 0.2rem; }
+  .id-field label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+  }
+  .id-field .line {
+    border-bottom: 1.5px solid #c8d4e0;
+    height: 1.6rem;
+  }
+  .id-field.full { grid-column: 1 / -1; }
+
+  /* Instrução */
+  .instrucao {
+    background: #eef3f9;
+    border-left: 4px solid var(--navy-light);
+    border-radius: 0 8px 8px 0;
+    padding: 0.9rem 1.2rem;
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    line-height: 1.55;
+    margin: 1.5rem 0 0.5rem;
+  }
+
+  /* Legenda */
+  .legenda {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin: 0.75rem 0 0;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+  .legenda span { display: flex; align-items: center; gap: 0.4rem; }
+  .box-sample {
+    width: 14px; height: 14px;
+    border: 1.5px solid #94a3b8;
+    border-radius: 3px;
+    display: inline-block;
+  }
+
+  /* Seção */
+  .secao {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-top: 1.5rem;
+    overflow: hidden;
+  }
+  .secao-header {
+    background: var(--navy);
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .secao-num {
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: bold;
+    font-size: 0.75rem;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .secao-titulo {
+    color: white;
+    font-size: 0.92rem;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+  }
+  .secao-subtitulo {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.72rem;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  /* Itens */
+  .item {
+    display: grid;
+    grid-template-columns: 16px 16px 1fr;
+    gap: 0 0.85rem;
+    align-items: start;
+    padding: 0.65rem 1.5rem;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.84rem;
+    color: var(--text-mid);
+    line-height: 1.4;
+  }
+  .item:last-child { border-bottom: none; }
+  .item .cb {
+    width: 14px; height: 14px;
+    border: 1.5px solid #94a3b8;
+    border-radius: 3px;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+  .item .num {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .item-nota {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 0.2rem;
+  }
+  .item:nth-child(even) { background: #fafbfd; }
+
+  /* Score */
+  .score-area {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-top: 1.5rem;
+    padding: 1.3rem 1.5rem;
+  }
+  .score-title {
+    font-size: 0.82rem;
+    font-weight: bold;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 1rem;
+  }
+  .score-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1.2rem;
+  }
+  .score-cell {
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 0.6rem 0.8rem;
+  }
+  .score-cell .sc-label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin-bottom: 0.3rem;
+  }
+  .score-cell .sc-line {
+    border-bottom: 1.5px solid #c8d4e0;
+    height: 1.4rem;
+  }
+
+  /* Interpretação */
+  .interp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+  }
+  .interp-table th {
+    background: var(--navy);
+    color: white;
+    padding: 0.5rem 0.8rem;
+    text-align: left;
+    font-size: 0.75rem;
+  }
+  .interp-table td {
+    padding: 0.5rem 0.8rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .interp-table tr:last-child td { border-bottom: none; }
+  .interp-table tr:nth-child(even) td { background: #fafbfd; }
+  .badge {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: bold;
+  }
+  .badge-verde { background: #dcfce7; color: #166534; }
+  .badge-amarelo { background: #fef9c3; color: #854d0e; }
+  .badge-laranja { background: #ffedd5; color: #9a3412; }
+  .badge-vermelho { background: #fee2e2; color: #991b1b; }
+
+  /* Observações */
+  .obs-area {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-top: 1.5rem;
+    padding: 1.3rem 1.5rem;
+  }
+  .obs-title {
+    font-size: 0.82rem;
+    font-weight: bold;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.75rem;
+  }
+  .obs-lines .line {
+    border-bottom: 1px solid #d1dae6;
+    height: 1.9rem;
+    margin-bottom: 0.1rem;
+  }
+
+  /* Aviso */
+  .aviso {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    padding: 0.8rem 1.1rem;
+    font-size: 0.78rem;
+    color: #78350f;
+    line-height: 1.55;
+    margin-top: 1.5rem;
+  }
+  .aviso strong { color: #92400e; }
+
+  /* Footer do doc */
+  .doc-footer {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  /* ── IMPRESSÃO ── */
+  @media print {
+    body { background: white; font-size: 11pt; }
+    .toolbar { display: none !important; }
+    .doc-wrap { margin: 0; padding: 0; max-width: none; }
+    .secao, .score-area, .obs-area, .id-card { break-inside: avoid; }
+    .secao { margin-top: 1rem; }
+    .btn-print, .btn-back { display: none; }
+    @page { margin: 1.5cm 2cm; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="toolbar-title">🔤 Checklist de Triagem — Dislexia</span>
+  <div class="toolbar-actions">
+    <a href="https://arianaasmotta-prog.github.io/ferramentas/" class="btn-back">← Voltar ao Hub</a>
+    <button class="btn-print" onclick="window.print()">🖨️ Imprimir / Salvar PDF</button>
+  </div>
+</div>
+
+<div class="doc-wrap">
+
+  <!-- Cabeçalho -->
+  <div class="doc-header">
+    <div class="tag">Triagem Psicopedagógica</div>
+    <h1>Checklist de Indicadores de <span>Dislexia</span></h1>
+    <p>Instrumento de triagem baseado nos critérios DSM-5 (F81.0) e CID-11 (6A03.0). Para uso exclusivo por psicopedagogo(a) ou profissional habilitado(a). Não substitui avaliação diagnóstica formal.</p>
+    <div class="divider"></div>
+  </div>
+
+  <!-- Ficha -->
+  <div class="id-card">
+    <div class="id-field full">
+      <label>Nome do estudante</label>
+      <div class="line"></div>
+    </div>
+    <div class="id-field">
+      <label>Data de nascimento</label>
+      <div class="line"></div>
+    </div>
+    <div class="id-field">
+      <label>Idade / Ano escolar</label>
+      <div class="line"></div>
+    </div>
+    <div class="id-field">
+      <label>Escola / Instituição</label>
+      <div class="line"></div>
+    </div>
+    <div class="id-field">
+      <label>Profissional responsável</label>
+      <div class="line"></div>
+    </div>
+    <div class="id-field">
+      <label>Data da triagem</label>
+      <div class="line"></div>
+    </div>
+    <div class="id-field">
+      <label>Fonte das informações</label>
+      <div class="line"></div>
+    </div>
+  </div>
+
+  <!-- Instrução -->
+  <div class="instrucao">
+    <strong>Instruções:</strong> Marque os indicadores <strong>presentes de forma consistente</strong> (observados com frequência, em múltiplos contextos e com duração superior a 6 meses, não explicados por dificuldades sensoriais, intelectuais, neurológicas ou inadequação do ensino). Registre a fonte observacional (professor, responsável, avaliação direta).
+  </div>
+  <div class="legenda">
+    <span><span class="box-sample"></span> Presente / Sim</span>
+    <span>□ Ausente / Não</span>
+  </div>
+
+  <!-- Domínio 1 -->
+  <div class="secao">
+    <div class="secao-header">
+      <div class="secao-num">1</div>
+      <div class="secao-titulo">Leitura de Palavras e Pseudopalavras</div>
+      <div class="secao-subtitulo">Critério A1 do DSM-5 &nbsp;|&nbsp; 8 itens</div>
+    </div>
+    <div class="item"><div class="cb"></div><div class="num">1</div><div>Lê palavras isoladas com precisão abaixo do esperado para a idade/série (erros frequentes, omissões, substituições).</div></div>
+    <div class="item"><div class="cb"></div><div class="num">2</div><div>Dificuldade acentuada na decodificação de pseudopalavras (palavras inventadas), indicando comprometimento da rota fonológica.<div class="item-nota">Ex.: lê "frade" como "frande"; não consegue ler "blupe" ou "cranto".</div></div></div>
+    <div class="item"><div class="cb"></div><div class="num">3</div><div>Leitura oral lenta, hesitante e com autocorreções frequentes mesmo em textos simples.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">4</div><div>Confunde grafemas visualmente similares (b/d, p/q, u/n) e/ou fonemas acusticamente próximos.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">5</div><div>Omite, adiciona ou inverte letras/sílabas ao ler (ex.: "palco" → "paco"; "blusa" → "bulsa").</div></div>
+    <div class="item"><div class="cb"></div><div class="num">6</div><div>Velocidade leitora (fluência) significativamente abaixo da média para a série, mesmo após instrução adequada.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">7</div><div>Dificuldade em ler palavras irregulares (via lexical comprometida), como "yacht", "pizza", palavras estrangeiras.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">8</div><div>Necessita de acompanhamento com o dedo ou perde o lugar na linha com frequência ao ler.</div></div>
+  </div>
+
+  <!-- Domínio 2 -->
+  <div class="secao">
+    <div class="secao-header">
+      <div class="secao-num">2</div>
+      <div class="secao-titulo">Compreensão Leitora</div>
+      <div class="secao-subtitulo">Critério A2 do DSM-5 &nbsp;|&nbsp; 5 itens</div>
+    </div>
+    <div class="item"><div class="cb"></div><div class="num">9</div><div>Compreensão de textos escritos abaixo do esperado, mesmo quando a decodificação é superficialmente realizada.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">10</div><div>Dificuldade em inferir o sentido de palavras pelo contexto da leitura.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">11</div><div>Desempenho significativamente melhor na compreensão oral do que na compreensão escrita (evidência importante de dislexia).</div></div>
+    <div class="item"><div class="cb"></div><div class="num">12</div><div>Não retém informações lidas a curto prazo; precisa relembrar o início do parágrafo antes de terminar de lê-lo.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">13</div><div>Baixa capacidade de resumir ou identificar a ideia principal de um texto lido.</div></div>
+  </div>
+
+  <!-- Domínio 3 -->
+  <div class="secao">
+    <div class="secao-header">
+      <div class="secao-num">3</div>
+      <div class="secao-titulo">Ortografia e Escrita</div>
+      <div class="secao-subtitulo">Critérios A3–A4 do DSM-5 &nbsp;|&nbsp; 8 itens</div>
+    </div>
+    <div class="item"><div class="cb"></div><div class="num">14</div><div>Erros ortográficos frequentes e consistentes, não explicados por falta de instrução ou baixa escolaridade.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">15</div><div>Erros fonográficos: escreve como pronuncia ou como ouve (ex.: "inteligente" → "intelijente"; "caixa" → "caisha").</div></div>
+    <div class="item"><div class="cb"></div><div class="num">16</div><div>Omissão de letras ou sílabas na escrita (ex.: "computador" → "cmputador"; "escola" → "escla").</div></div>
+    <div class="item"><div class="cb"></div><div class="num">17</div><div>Inversão, transposição ou adição de letras/sílabas na escrita (ex.: "brincar" → "bincrar").</div></div>
+    <div class="item"><div class="cb"></div><div class="num">18</div><div>Dificuldade persistente com pontuação, paragrafação e segmentação de palavras (junção/separação indevida).</div></div>
+    <div class="item"><div class="cb"></div><div class="num">19</div><div>Caligrafia inconsistente: variação de tamanho, espaçamento irregular, letras mal formadas ou ilegíveis.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">20</div><div>Lentidão excessiva na cópia de textos do quadro ou de materiais escritos.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">21</div><div>Dificuldade em transferir para a escrita o conhecimento que demonstra oralmente.</div></div>
+  </div>
+
+  <!-- Domínio 4 -->
+  <div class="secao">
+    <div class="secao-header">
+      <div class="secao-num">4</div>
+      <div class="secao-titulo">Processamento Fonológico</div>
+      <div class="secao-subtitulo">Base neurológica da dislexia &nbsp;|&nbsp; 7 itens</div>
+    </div>
+    <div class="item"><div class="cb"></div><div class="num">22</div><div>Dificuldade em consciência fonêmica: identificar, isolar, manipular fonemas (ex.: dificuldade em dizer qual palavra fica se tirar o /p/ de "pato").</div></div>
+    <div class="item"><div class="cb"></div><div class="num">23</div><div>Dificuldade em segmentação silábica de palavras longas ou incomuns.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">24</div><div>Baixo desempenho em tarefas de rima (produção e identificação).</div></div>
+    <div class="item"><div class="cb"></div><div class="num">25</div><div>Dificuldade de nomeação automatizada rápida (RAN): lentidão para nomear séries de cores, figuras, letras ou números.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">26</div><div>Dificuldade com memória fonológica de curto prazo: repetição de pseudopalavras longas ou sequências de dígitos.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">27</div><div>Confusão com sequências: dias da semana, meses do ano, tabelas de multiplicação, sequências de letras ou números.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">28</div><div>Dificuldade em aprender e consolidar novos vocabulários técnicos ou em língua estrangeira.</div></div>
+  </div>
+
+  <!-- Domínio 5 -->
+  <div class="secao">
+    <div class="secao-header">
+      <div class="secao-num">5</div>
+      <div class="secao-titulo">Histórico e Aspectos Comportamentais</div>
+      <div class="secao-subtitulo">Critério C do DSM-5 &nbsp;|&nbsp; 7 itens</div>
+    </div>
+    <div class="item"><div class="cb"></div><div class="num">29</div><div>Histórico familiar de dislexia, dificuldades de leitura ou escrita (evidência genética documentada).</div></div>
+    <div class="item"><div class="cb"></div><div class="num">30</div><div>Dificuldades presentes desde o início da escolarização e persistentes, mesmo com instrução adequada.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">31</div><div>Evitação de atividades que envolvam leitura ou escrita; resistência, ansiedade ou recusa escolar.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">32</div><div>Discrepância marcada entre desempenho verbal/oral (bom) e desempenho escrito (baixo).</div></div>
+    <div class="item"><div class="cb"></div><div class="num">33</div><div>Baixa autoestima escolar; percepção de si como "burro(a)" ou "incapaz" em comparação aos pares.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">34</div><div>As dificuldades impactam funcionalmente: desempenho escolar, tarefas diárias ou vida social.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">35</div><div>Dificuldades não explicadas por déficit intelectual, acuidade visual/auditiva, transtorno neurológico adquirido ou instrução inadequada (critério de exclusão DSM-5).</div></div>
+  </div>
+
+  <!-- Critérios de Exclusão -->
+  <div class="secao">
+    <div class="secao-header">
+      <div class="secao-num">!</div>
+      <div class="secao-titulo">Verificação dos Critérios de Exclusão (DSM-5, Critério B)</div>
+      <div class="secao-subtitulo">Marque se DESCARTADO</div>
+    </div>
+    <div class="item"><div class="cb"></div><div class="num">E1</div><div>Déficit intelectual significativo (QI ≤ 70) confirmado.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">E2</div><div>Perda auditiva ou visual não corrigida que justifique as dificuldades.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">E3</div><div>Transtorno neurológico ou motor adquirido (ex.: lesão cerebral, epilepsia refratária).</div></div>
+    <div class="item"><div class="cb"></div><div class="num">E4</div><div>Instrução inadequada ou ausência de oportunidade de aprendizagem formal suficiente.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">E5</div><div>Transtorno de linguagem primário não tratado como principal explicação para as dificuldades.</div></div>
+  </div>
+
+  <!-- Score -->
+  <div class="score-area">
+    <div class="score-title">📊 Pontuação por Domínio</div>
+    <div class="score-grid">
+      <div class="score-cell"><div class="sc-label">Domínio 1 — Leitura (8)</div><div class="sc-line"></div></div>
+      <div class="score-cell"><div class="sc-label">Domínio 2 — Compreensão (5)</div><div class="sc-line"></div></div>
+      <div class="score-cell"><div class="sc-label">Domínio 3 — Ortografia (8)</div><div class="sc-line"></div></div>
+      <div class="score-cell"><div class="sc-label">Domínio 4 — Fonologia (7)</div><div class="sc-line"></div></div>
+      <div class="score-cell"><div class="sc-label">Domínio 5 — Histórico (7)</div><div class="sc-line"></div></div>
+      <div class="score-cell"><div class="sc-label">TOTAL (35 itens)</div><div class="sc-line"></div></div>
+    </div>
+
+    <table class="interp-table">
+      <thead>
+        <tr>
+          <th>Pontuação total</th>
+          <th>Indicativo</th>
+          <th>Conduta recomendada</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>0–5</strong></td>
+          <td><span class="badge badge-verde">Baixo risco</span></td>
+          <td>Monitoramento; reavaliar se dificuldades persistirem.</td>
+        </tr>
+        <tr>
+          <td><strong>6–12</strong></td>
+          <td><span class="badge badge-amarelo">Risco moderado</span></td>
+          <td>Intervenção preventiva; avaliação neuropsicológica sugerida.</td>
+        </tr>
+        <tr>
+          <td><strong>13–22</strong></td>
+          <td><span class="badge badge-laranja">Risco alto</span></td>
+          <td>Encaminhamento prioritário para avaliação multidisciplinar (psicopedagogo, neuropediatra, fonoaudiólogo).</td>
+        </tr>
+        <tr>
+          <td><strong>23–35</strong></td>
+          <td><span class="badge badge-vermelho">Risco muito alto</span></td>
+          <td>Forte indicativo de dislexia. Encaminhar com urgência. Iniciar adaptações curriculares imediatamente.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.72rem;color:#64748b;margin-top:0.6rem;">⚠ A pontuação é um guia clínico, não um diagnóstico. O diagnóstico formal exige avaliação psicológica/neuropsicológica completa com instrumentos padronizados.</p>
+  </div>
+
+  <!-- Observações -->
+  <div class="obs-area">
+    <div class="obs-title">📝 Observações Clínicas e Hipóteses Diagnósticas</div>
+    <div class="obs-lines">
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+    </div>
+  </div>
+
+  <!-- Encaminhamentos -->
+  <div class="obs-area" style="margin-top:1rem;">
+    <div class="obs-title">📋 Encaminhamentos e Próximos Passos</div>
+    <div class="obs-lines">
+      <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+    </div>
+  </div>
+
+  <!-- Aviso -->
+  <div class="aviso">
+    <strong>⚠ Aviso importante:</strong> Este checklist é um instrumento de <em>triagem</em>, não de diagnóstico. O diagnóstico de Dislexia (Transtorno Específico de Aprendizagem com prejuízo na leitura — DSM-5 F81.0 / CID-11 6A03.0) exige avaliação psicológica ou neuropsicológica completa, com uso de instrumentos padronizados e normatizados. A triagem positiva indica necessidade de investigação aprofundada e não deve ser comunicada às famílias como diagnóstico.
+  </div>
+
+  <div class="doc-footer">
+    <span>Ferramentas Psicopedagógicas — arianaasmotta-prog.github.io/ferramentas</span>
+    <span>Baseado: DSM-5 (APA, 2013) · CID-11 (OMS, 2022) · ABCD · Snowling & Hulme (2012)</span>
+  </div>
+
+</div>
+
+</body>
+</html>

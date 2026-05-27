@@ -27,7 +27,6 @@
     min-height: 100vh;
   }
 
-  /* ── TELA: Barra de ações ── */
   .toolbar {
     background: var(--navy);
     padding: 0.75rem 2rem;
@@ -37,12 +36,7 @@
     gap: 1rem;
     flex-wrap: wrap;
   }
-  .toolbar-title {
-    color: white;
-    font-size: 0.9rem;
-    font-weight: bold;
-    letter-spacing: 0.03em;
-  }
+  .toolbar-title { color: white; font-size: 0.9rem; font-weight: bold; letter-spacing: 0.03em; }
   .toolbar-actions { display: flex; gap: 0.75rem; }
   .btn-print {
     background: var(--gold);
@@ -53,9 +47,7 @@
     font-size: 0.85rem;
     font-weight: bold;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
+    display: flex; align-items: center; gap: 0.4rem;
     text-decoration: none;
   }
   .btn-print:hover { background: var(--gold-light); }
@@ -68,13 +60,10 @@
     font-size: 0.85rem;
     cursor: pointer;
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
+    display: flex; align-items: center; gap: 0.4rem;
   }
   .btn-back:hover { background: rgba(255,255,255,0.08); }
 
-  /* ── DOCUMENTO ── */
   .doc-wrap {
     max-width: 780px;
     margin: 2rem auto;
@@ -118,7 +107,6 @@
     margin-top: 1.2rem;
   }
 
-  /* Ficha de identificação */
   .id-card {
     background: white;
     border: 1px solid var(--border);
@@ -129,19 +117,10 @@
     gap: 0.9rem 2rem;
   }
   .id-field { display: flex; flex-direction: column; gap: 0.2rem; }
-  .id-field label {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-muted);
-  }
-  .id-field .line {
-    border-bottom: 1.5px solid #c8d4e0;
-    height: 1.6rem;
-  }
+  .id-field label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+  .id-field .line { border-bottom: 1.5px solid #c8d4e0; height: 1.6rem; }
   .id-field.full { grid-column: 1 / -1; }
 
-  /* Instrução */
   .instrucao {
     background: #eef3f9;
     border-left: 4px solid var(--navy-light);
@@ -153,24 +132,14 @@
     margin: 1.5rem 0 0.5rem;
   }
 
-  /* Legenda */
   .legenda {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
     margin: 0.75rem 0 0;
-    font-size: 0.78rem;
-    color: var(--text-muted);
+    font-size: 0.78rem; color: var(--text-muted);
   }
   .legenda span { display: flex; align-items: center; gap: 0.4rem; }
-  .box-sample {
-    width: 14px; height: 14px;
-    border: 1.5px solid #94a3b8;
-    border-radius: 3px;
-    display: inline-block;
-  }
+  .box-sample { width: 14px; height: 14px; border: 1.5px solid #94a3b8; border-radius: 3px; display: inline-block; }
 
-  /* Seção */
   .secao {
     background: white;
     border: 1px solid var(--border);
@@ -181,9 +150,7 @@
   .secao-header {
     background: var(--navy);
     padding: 0.8rem 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    display: flex; align-items: center; gap: 0.75rem;
   }
   .secao-num {
     background: var(--gold);
@@ -195,23 +162,12 @@
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
   }
-  .secao-titulo {
-    color: white;
-    font-size: 0.92rem;
-    font-weight: bold;
-    letter-spacing: 0.02em;
-  }
-  .secao-subtitulo {
-    color: rgba(255,255,255,0.55);
-    font-size: 0.72rem;
-    margin-left: auto;
-    white-space: nowrap;
-  }
+  .secao-titulo { color: white; font-size: 0.92rem; font-weight: bold; letter-spacing: 0.02em; }
+  .secao-subtitulo { color: rgba(255,255,255,0.55); font-size: 0.72rem; margin-left: auto; white-space: nowrap; }
 
-  /* Itens */
   .item {
     display: grid;
-    grid-template-columns: 16px 16px 1fr;
+    grid-template-columns: 16px 20px 1fr;
     gap: 0 0.85rem;
     align-items: start;
     padding: 0.65rem 1.5rem;
@@ -221,154 +177,25 @@
     line-height: 1.4;
   }
   .item:last-child { border-bottom: none; }
-  .item .cb {
-    width: 14px; height: 14px;
-    border: 1.5px solid #94a3b8;
-    border-radius: 3px;
-    margin-top: 1px;
-    flex-shrink: 0;
-  }
-  .item .num {
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    margin-top: 2px;
-  }
-  .item-nota {
-    font-size: 0.74rem;
-    color: var(--text-muted);
-    font-style: italic;
-    margin-top: 0.2rem;
-  }
+  .item .cb { width: 14px; height: 14px; border: 1.5px solid #94a3b8; border-radius: 3px; margin-top: 1px; flex-shrink: 0; }
+  .item .num { font-size: 0.7rem; color: var(--text-muted); margin-top: 2px; }
   .item:nth-child(even) { background: #fafbfd; }
 
-  /* Score */
-  .score-area {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    margin-top: 1.5rem;
-    padding: 1.3rem 1.5rem;
-  }
-  .score-title {
-    font-size: 0.82rem;
-    font-weight: bold;
-    color: var(--navy);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 1rem;
-  }
-  .score-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 0.75rem;
-    margin-bottom: 1.2rem;
-  }
-  .score-cell {
-    border: 1.5px solid var(--border);
-    border-radius: 8px;
-    padding: 0.6rem 0.8rem;
-  }
-  .score-cell .sc-label {
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text-muted);
-    margin-bottom: 0.3rem;
-  }
-  .score-cell .sc-line {
-    border-bottom: 1.5px solid #c8d4e0;
-    height: 1.4rem;
-  }
+  .obs-area { background: white; border: 1px solid var(--border); border-radius: 10px; margin-top: 1.5rem; padding: 1.3rem 1.5rem; }
+  .obs-title { font-size: 0.82rem; font-weight: bold; color: var(--navy); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem; }
+  .obs-lines .line { border-bottom: 1px solid #d1dae6; height: 1.9rem; margin-bottom: 0.1rem; }
 
-  /* Interpretação */
-  .interp-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.8rem;
-    margin-top: 1rem;
-  }
-  .interp-table th {
-    background: var(--navy);
-    color: white;
-    padding: 0.5rem 0.8rem;
-    text-align: left;
-    font-size: 0.75rem;
-  }
-  .interp-table td {
-    padding: 0.5rem 0.8rem;
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-  }
-  .interp-table tr:last-child td { border-bottom: none; }
-  .interp-table tr:nth-child(even) td { background: #fafbfd; }
-  .badge {
-    display: inline-block;
-    padding: 0.15rem 0.6rem;
-    border-radius: 20px;
-    font-size: 0.7rem;
-    font-weight: bold;
-  }
-  .badge-verde { background: #dcfce7; color: #166534; }
-  .badge-amarelo { background: #fef9c3; color: #854d0e; }
-  .badge-laranja { background: #ffedd5; color: #9a3412; }
-  .badge-vermelho { background: #fee2e2; color: #991b1b; }
-
-  /* Observações */
-  .obs-area {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    margin-top: 1.5rem;
-    padding: 1.3rem 1.5rem;
-  }
-  .obs-title {
-    font-size: 0.82rem;
-    font-weight: bold;
-    color: var(--navy);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 0.75rem;
-  }
-  .obs-lines .line {
-    border-bottom: 1px solid #d1dae6;
-    height: 1.9rem;
-    margin-bottom: 0.1rem;
-  }
-
-  /* Aviso */
-  .aviso {
-    background: #fffbeb;
-    border: 1px solid #fde68a;
-    border-radius: 8px;
-    padding: 0.8rem 1.1rem;
-    font-size: 0.78rem;
-    color: #78350f;
-    line-height: 1.55;
-    margin-top: 1.5rem;
-  }
+  .aviso { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 0.8rem 1.1rem; font-size: 0.78rem; color: #78350f; line-height: 1.55; margin-top: 1.5rem; }
   .aviso strong { color: #92400e; }
 
-  /* Footer do doc */
-  .doc-footer {
-    margin-top: 1.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.72rem;
-    color: var(--text-muted);
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
+  .doc-footer { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted); flex-wrap: wrap; gap: 0.5rem; }
 
-  /* ── IMPRESSÃO ── */
   @media print {
     body { background: white; font-size: 11pt; }
     .toolbar { display: none !important; }
     .doc-wrap { margin: 0; padding: 0; max-width: none; }
-    .secao, .score-area, .obs-area, .id-card { break-inside: avoid; }
+    .secao, .obs-area, .id-card { break-inside: avoid; }
     .secao { margin-top: 1rem; }
-    .btn-print, .btn-back { display: none; }
     @page { margin: 1.5cm 2cm; }
   }
 </style>
@@ -385,7 +212,6 @@
 
 <div class="doc-wrap">
 
-  <!-- Cabeçalho -->
   <div class="doc-header">
     <div class="tag">Triagem Psicopedagógica</div>
     <h1>Checklist de Indicadores de <span>Dislexia</span></h1>
@@ -393,7 +219,6 @@
     <div class="divider"></div>
   </div>
 
-  <!-- Ficha -->
   <div class="id-card">
     <div class="id-field full">
       <label>Paciente</label>
@@ -413,9 +238,8 @@
     </div>
   </div>
 
-  <!-- Instrução -->
   <div class="instrucao">
-    <strong>Instruções:</strong> Marque os indicadores <strong>presentes de forma consistente</strong> (observados com frequência, em múltiplos contextos e com duração superior a 6 meses, não explicados por dificuldades sensoriais, intelectuais, neurológicas ou inadequação do ensino). Registre a fonte observacional (professor, responsável, avaliação direta).
+    <strong>Instruções:</strong> Marque os indicadores <strong>presentes de forma consistente</strong> — observados com frequência e em múltiplos contextos, com duração superior a 6 meses, não explicados por dificuldades sensoriais, intelectuais, neurológicas ou inadequação do ensino.
   </div>
   <div class="legenda">
     <span><span class="box-sample"></span> Presente / Sim</span>
@@ -426,124 +250,140 @@
   <div class="secao">
     <div class="secao-header">
       <div class="secao-num">1</div>
-      <div class="secao-titulo">Leitura de Palavras e Pseudopalavras</div>
-      <div class="secao-subtitulo">Critério A1 do DSM-5 &nbsp;|&nbsp; 8 itens</div>
+      <div class="secao-titulo">Leitura e Decodificação</div>
+      <div class="secao-subtitulo">Critério A1 DSM-5 &nbsp;|&nbsp; 8 itens</div>
     </div>
-    <div class="item"><div class="cb"></div><div class="num">1</div><div>Lê palavras isoladas com precisão abaixo do esperado para a idade/série (erros frequentes, omissões, substituições).</div></div>
-    <div class="item"><div class="cb"></div><div class="num">2</div><div>Dificuldade acentuada na decodificação de pseudopalavras (palavras inventadas), indicando comprometimento da rota fonológica.<div class="item-nota">Ex.: lê "frade" como "frande"; não consegue ler "blupe" ou "cranto".</div></div></div>
-    <div class="item"><div class="cb"></div><div class="num">3</div><div>Leitura oral lenta, hesitante e com autocorreções frequentes mesmo em textos simples.</div></div>
-    <div class="item"><div class="cb"></div><div class="num">4</div><div>Confunde grafemas visualmente similares (b/d, p/q, u/n) e/ou fonemas acusticamente próximos.</div></div>
-    <div class="item"><div class="cb"></div><div class="num">5</div><div>Omite, adiciona ou inverte letras/sílabas ao ler (ex.: "palco" → "paco"; "blusa" → "bulsa").</div></div>
-    <div class="item"><div class="cb"></div><div class="num">6</div><div>Velocidade leitora (fluência) significativamente abaixo da média para a série, mesmo após instrução adequada.</div></div>
-    <div class="item"><div class="cb"></div><div class="num">7</div><div>Dificuldade em ler palavras irregulares (via lexical comprometida), como "yacht", "pizza", palavras estrangeiras.</div></div>
-    <div class="item"><div class="cb"></div><div class="num">8</div><div>Necessita de acompanhamento com o dedo ou perde o lugar na linha com frequência ao ler.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">1</div><div>Comete erros frequentes ao ler em voz alta: troca, omite ou adiciona letras e sílabas.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">2</div><div>Lê palavras conhecidas de forma inconsistente — em uma leitura acerta, na seguinte erra a mesma palavra.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">3</div><div>Apresenta dificuldade em decodificar palavras novas ou pouco familiares.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">4</div><div>Confunde letras de forma visualmente similar: b/d, p/q, u/n, m/n.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">5</div><div>Omite ou adiciona palavras ao ler frases e textos.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">6</div><div>Demonstra esforço visivelmente excessivo para ler palavras consideradas simples para a série.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">7</div><div>Perde o lugar na linha ao ler, precisando usar o dedo como guia com frequência.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">8</div><div>Lê palavras com inversão de letras ou sílabas (ex.: "sol" como "los", "par" como "rap").</div></div>
   </div>
 
   <!-- Domínio 2 -->
   <div class="secao">
     <div class="secao-header">
       <div class="secao-num">2</div>
-      <div class="secao-titulo">Compreensão Leitora</div>
-      <div class="secao-subtitulo">Critério A2 do DSM-5 &nbsp;|&nbsp; 5 itens</div>
+      <div class="secao-titulo">Velocidade e Fluência Leitora</div>
+      <div class="secao-subtitulo">Critério A1 DSM-5 &nbsp;|&nbsp; 7 itens</div>
     </div>
-    <div class="item"><div class="cb"></div><div class="num">9</div><div>Compreensão de textos escritos abaixo do esperado, mesmo quando a decodificação é superficialmente realizada.</div></div>
-    <div class="item"><div class="cb"></div><div class="num">10</div><div>Dificuldade em inferir o sentido de palavras pelo contexto da leitura.</div></div>
-    <div class="item"><div class="cb"></div><div class="num">11</div><div>Desempenho significativamente melhor na compreensão oral do que na compreensão escrita (evidência importante de dislexia).</div></div>
-    <div class="item"><div class="cb"></div><div class="num">12</div><div>Não retém informações lidas a curto prazo; precisa relembrar o início do parágrafo antes de terminar de lê-lo.</div></div>
-    <div class="item"><div class="cb"></div><div class="num">13</div><div>Baixa capacidade de resumir ou identificar a ideia principal de um texto lido.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">9</div><div>A leitura é notavelmente mais lenta do que o esperado para a faixa etária e série escolar.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">10</div><div>Lê de forma silabada mesmo em textos considerados adequados para a série.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">11</div><div>Não consegue automatizar a leitura — permanece lento(a) mesmo após exposição repetida ao mesmo texto.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">12</div><div>Demonstra esforço físico visível ao ler (tensa o corpo, franze a testa, aponta cada palavra com o dedo).</div></div>
+    <div class="item"><div class="cb"></div><div class="num">13</div><div>A velocidade de leitura reduz significativamente à medida que o texto se alonga.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">14</div><div>A leitura oral é marcada por hesitações, repetições e interrupções frequentes.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">15</div><div>Ignora ou usa incorretamente sinais de pontuação durante a leitura em voz alta, comprometendo o ritmo.</div></div>
   </div>
 
   <!-- Domínio 3 -->
   <div class="secao">
     <div class="secao-header">
       <div class="secao-num">3</div>
-      <div class="secao-titulo">Ortografia e Escrita</div>
-      <div class="secao-subtitulo">Critérios A3–A4 do DSM-5 &nbsp;|&nbsp; 8 itens</div>
+      <div class="secao-titulo">Compreensão Leitora</div>
+      <div class="secao-subtitulo">Critério A2 DSM-5 &nbsp;|&nbsp; 6 itens</div>
     </div>
-    <div class="item"><div class="cb"></div><div class="num">14</div><div>Erros ortográficos frequentes e consistentes, não explicados por falta de instrução ou baixa escolaridade.</div></div>
-    <div class="item"><div class="cb"></div><div class="num">15</div><div>Erros fonográficos: escreve como pronuncia ou como ouve (ex.: "inteligente" → "intelijente"; "caixa" → "caisha").</div></div>
-    <div class="item"><div class="cb"></div><div class="num">16</div><div>Omissão de letras ou sílabas na escrita (ex.: "computador" → "cmputador"; "escola" → "escla").</div></div>
-    <div class="item"><div class="cb"></div><div class="num">17</div><div>Inversão, transposição ou adição de letras/sílabas na escrita (ex.: "brincar" → "bincrar").</div></div>
-    <div class="item"><div class="cb"></div><div class="num">18</div><div>Dificuldade persistente com pontuação, paragrafação e segmentação de palavras (junção/separação indevida).</div></div>
-    <div class="item"><div class="cb"></div><div class="num">19</div><div>Caligrafia inconsistente: variação de tamanho, espaçamento irregular, letras mal formadas ou ilegíveis.</div></div>
-    <div class="item"><div class="cb"></div><div class="num">20</div><div>Lentidão excessiva na cópia de textos do quadro ou de materiais escritos.</div></div>
-    <div class="item"><div class="cb"></div><div class="num">21</div><div>Dificuldade em transferir para a escrita o conhecimento que demonstra oralmente.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">16</div><div>Tem dificuldade em compreender o que leu, mesmo após releitura.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">17</div><div>Consegue decodificar palavras, mas não retém o sentido das frases ou do texto como um todo.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">18</div><div>Não consegue responder perguntas de interpretação sobre textos lidos de forma independente.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">19</div><div>Apresenta compreensão oral muito superior à compreensão leitora (diferença expressiva entre os dois modos).</div></div>
+    <div class="item"><div class="cb"></div><div class="num">20</div><div>Dificuldade em identificar a ideia principal de um texto escrito.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">21</div><div>Não consegue fazer inferências ou relacionar informações do texto lido com contextos conhecidos.</div></div>
   </div>
 
   <!-- Domínio 4 -->
   <div class="secao">
     <div class="secao-header">
       <div class="secao-num">4</div>
-      <div class="secao-titulo">Processamento Fonológico</div>
-      <div class="secao-subtitulo">Base neurológica da dislexia &nbsp;|&nbsp; 7 itens</div>
+      <div class="secao-titulo">Escrita, Ortografia e Expressão Escrita</div>
+      <div class="secao-subtitulo">Critérios A3/A4 DSM-5 &nbsp;|&nbsp; 8 itens</div>
     </div>
-    <div class="item"><div class="cb"></div><div class="num">22</div><div>Dificuldade em consciência fonêmica: identificar, isolar, manipular fonemas (ex.: dificuldade em dizer qual palavra fica se tirar o /p/ de "pato").</div></div>
-    <div class="item"><div class="cb"></div><div class="num">23</div><div>Dificuldade em segmentação silábica de palavras longas ou incomuns.</div></div>
-    <div class="item"><div class="cb"></div><div class="num">24</div><div>Baixo desempenho em tarefas de rima (produção e identificação).</div></div>
-    <div class="item"><div class="cb"></div><div class="num">25</div><div>Dificuldade de nomeação automatizada rápida (RAN): lentidão para nomear séries de cores, figuras, letras ou números.</div></div>
-    <div class="item"><div class="cb"></div><div class="num">26</div><div>Dificuldade com memória fonológica de curto prazo: repetição de pseudopalavras longas ou sequências de dígitos.</div></div>
-    <div class="item"><div class="cb"></div><div class="num">27</div><div>Confusão com sequências: dias da semana, meses do ano, tabelas de multiplicação, sequências de letras ou números.</div></div>
-    <div class="item"><div class="cb"></div><div class="num">28</div><div>Dificuldade em aprender e consolidar novos vocabulários técnicos ou em língua estrangeira.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">22</div><div>Apresenta erros ortográficos frequentes e persistentes, mesmo em palavras já trabalhadas em sala.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">23</div><div>Omite letras ou sílabas ao escrever (ex.: "escola" → "ecola"; "trabalho" → "tabalho").</div></div>
+    <div class="item"><div class="cb"></div><div class="num">24</div><div>Realiza trocas de letras ao escrever (ex.: b/d/p/q, t/d, f/v, s/z, m/n, lh/lf).</div></div>
+    <div class="item"><div class="cb"></div><div class="num">25</div><div>A escrita espontânea é muito mais pobre em vocabulário e estrutura do que a expressão oral demonstrada.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">26</div><div>Apresenta junção ou separação incorreta de palavras (ex.: "debaixo" → "de baixo"; "a gora" → "agora").</div></div>
+    <div class="item"><div class="cb"></div><div class="num">27</div><div>Dificuldade em copiar textos do quadro ou do livro com precisão e sem omissões.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">28</div><div>A escrita manual é desorganizada: letras de tamanhos irregulares, linhas tortas, uso inconsistente de maiúsculas.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">29</div><div>Texto escrito apresenta ausência ou uso incorreto e consistente de pontuação.</div></div>
   </div>
 
   <!-- Domínio 5 -->
   <div class="secao">
     <div class="secao-header">
       <div class="secao-num">5</div>
-      <div class="secao-titulo">Histórico e Aspectos Comportamentais</div>
-      <div class="secao-subtitulo">Critério C do DSM-5 &nbsp;|&nbsp; 7 itens</div>
+      <div class="secao-titulo">Processamento Fonológico</div>
+      <div class="secao-subtitulo">Base neurológica da dislexia &nbsp;|&nbsp; 7 itens</div>
     </div>
-    <div class="item"><div class="cb"></div><div class="num">29</div><div>Histórico familiar de dislexia, dificuldades de leitura ou escrita (evidência genética documentada).</div></div>
-    <div class="item"><div class="cb"></div><div class="num">30</div><div>Dificuldades presentes desde o início da escolarização e persistentes, mesmo com instrução adequada.</div></div>
-    <div class="item"><div class="cb"></div><div class="num">31</div><div>Evitação de atividades que envolvam leitura ou escrita; resistência, ansiedade ou recusa escolar.</div></div>
-    <div class="item"><div class="cb"></div><div class="num">32</div><div>Discrepância marcada entre desempenho verbal/oral (bom) e desempenho escrito (baixo).</div></div>
-    <div class="item"><div class="cb"></div><div class="num">33</div><div>Baixa autoestima escolar; percepção de si como "burro(a)" ou "incapaz" em comparação aos pares.</div></div>
-    <div class="item"><div class="cb"></div><div class="num">34</div><div>As dificuldades impactam funcionalmente: desempenho escolar, tarefas diárias ou vida social.</div></div>
-    <div class="item"><div class="cb"></div><div class="num">35</div><div>Dificuldades não explicadas por déficit intelectual, acuidade visual/auditiva, transtorno neurológico adquirido ou instrução inadequada (critério de exclusão DSM-5).</div></div>
+    <div class="item"><div class="cb"></div><div class="num">30</div><div>Apresenta dificuldade em identificar e manipular sons dentro de palavras (ex.: segmentar, omitir, substituir fonemas).</div></div>
+    <div class="item"><div class="cb"></div><div class="num">31</div><div>Dificuldade em reconhecer ou produzir rimas.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">32</div><div>Não consegue segmentar palavras em sílabas com facilidade e precisão.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">33</div><div>Dificuldade em identificar o som inicial ou final de palavras isoladas.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">34</div><div>Não consegue realizar tarefas de omissão de sílabas (ex.: "barco sem /bar/" = "co").</div></div>
+    <div class="item"><div class="cb"></div><div class="num">35</div><div>Dificuldade em memorizar e repetir sequências de sons: palavras longas, nomes próprios, palavras estrangeiras.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">36</div><div>Confunde sons semelhantes na percepção auditiva ou na fala (ex.: /p/-/b/, /t/-/d/, /f/-/v/).</div></div>
   </div>
 
-  <!-- Critérios de Exclusão -->
+  <!-- Domínio 6 -->
   <div class="secao">
     <div class="secao-header">
-      <div class="secao-num">!</div>
-      <div class="secao-titulo">Verificação dos Critérios de Exclusão (DSM-5, Critério B)</div>
-      <div class="secao-subtitulo">Marque se DESCARTADO</div>
+      <div class="secao-num">6</div>
+      <div class="secao-titulo">Memória de Trabalho e Processamento</div>
+      <div class="secao-subtitulo">Retenção verbal, nomeação e sequenciamento &nbsp;|&nbsp; 7 itens</div>
     </div>
-    <div class="item"><div class="cb"></div><div class="num">E1</div><div>Déficit intelectual significativo (QI ≤ 70) confirmado.</div></div>
-    <div class="item"><div class="cb"></div><div class="num">E2</div><div>Perda auditiva ou visual não corrigida que justifique as dificuldades.</div></div>
-    <div class="item"><div class="cb"></div><div class="num">E3</div><div>Transtorno neurológico ou motor adquirido (ex.: lesão cerebral, epilepsia refratária).</div></div>
-    <div class="item"><div class="cb"></div><div class="num">E4</div><div>Instrução inadequada ou ausência de oportunidade de aprendizagem formal suficiente.</div></div>
-    <div class="item"><div class="cb"></div><div class="num">E5</div><div>Transtorno de linguagem primário não tratado como principal explicação para as dificuldades.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">37</div><div>Dificuldade em memorizar sequências: dias da semana, meses do ano, tabuada, alfabeto em ordem.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">38</div><div>Dificuldade em seguir instruções com múltiplos passos quando apresentadas verbalmente.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">39</div><div>Esquece com facilidade o que acabou de ler enquanto avança no texto.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">40</div><div>Lentidão na nomeação rápida de figuras, cores, letras ou números (velocidade de nomeação reduzida).</div></div>
+    <div class="item"><div class="cb"></div><div class="num">41</div><div>Dificuldade em aprender nomes de pessoas, lugares, personagens ou termos novos.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">42</div><div>Dificuldade em repetir frases longas ou pseudopalavras com precisão.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">43</div><div>Confunde a sequência de letras dentro de palavras ao escrever (ex.: "prestar" → "perstar").</div></div>
+  </div>
+
+  <!-- Domínio 7 -->
+  <div class="secao">
+    <div class="secao-header">
+      <div class="secao-num">7</div>
+      <div class="secao-titulo">Sinais Emocionais, Comportamentais e Escolares</div>
+      <div class="secao-subtitulo">Critério B DSM-5 &nbsp;|&nbsp; 7 itens</div>
+    </div>
+    <div class="item"><div class="cb"></div><div class="num">44</div><div>Demonstra resistência ou recusa frequente em ler em voz alta na escola ou em contextos sociais.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">45</div><div>Apresenta ansiedade, choro ou comportamentos de esquiva diante de atividades de leitura e escrita.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">46</div><div>Autoestima rebaixada especificamente relacionada ao desempenho escolar.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">47</div><div>Histórico de reforço escolar, reprovação ou acompanhamento especializado sem melhora expressiva.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">48</div><div>Desempenho muito superior em atividades orais em comparação com as escritas.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">49</div><div>Relata ou demonstra fadiga intensa após atividades que exigem leitura ou escrita prolongadas.</div></div>
+    <div class="item"><div class="cb"></div><div class="num">50</div><div>Rendimento escolar inconsistente: desempenho adequado em áreas que não dependem de leitura e muito abaixo nas que dependem.</div></div>
   </div>
 
   <!-- Observações -->
   <div class="obs-area">
-    <div class="obs-title">📝 Observações Clínicas e Hipóteses Diagnósticas</div>
+    <div class="obs-title">📝 Observações Clínicas</div>
     <div class="obs-lines">
       <div class="line"></div><div class="line"></div><div class="line"></div>
       <div class="line"></div><div class="line"></div><div class="line"></div>
     </div>
   </div>
 
-  <!-- Encaminhamentos -->
   <div class="obs-area" style="margin-top:1rem;">
-    <div class="obs-title">📋 Encaminhamentos e Próximos Passos</div>
+    <div class="obs-title">📋 Encaminhamentos</div>
     <div class="obs-lines">
       <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
     </div>
   </div>
 
-  <!-- Aviso -->
   <div class="aviso">
-    <strong>⚠ Aviso importante:</strong> Este checklist é um instrumento de <em>triagem</em>, não de diagnóstico. O diagnóstico de Dislexia (Transtorno Específico de Aprendizagem com prejuízo na leitura — DSM-5 F81.0 / CID-11 6A03.0) exige avaliação psicológica ou neuropsicológica completa, com uso de instrumentos padronizados e normatizados. A triagem positiva indica necessidade de investigação aprofundada e não deve ser comunicada às famílias como diagnóstico.
+    <strong>⚠ Aviso importante:</strong> Este checklist é um instrumento de <em>triagem</em>, não de diagnóstico. O diagnóstico de Dislexia exige avaliação psicológica ou neuropsicológica completa com instrumentos padronizados. A triagem positiva indica necessidade de investigação aprofundada e não deve ser comunicada às famílias como diagnóstico.
   </div>
 
   <div class="doc-footer">
     <span>Ferramentas Psicopedagógicas — arianaasmotta-prog.github.io/ferramentas</span>
-    <span>Baseado: DSM-5 (APA, 2013) · CID-11 (OMS, 2022) · ABCD · Snowling & Hulme (2012)</span>
+    <span>Baseado: DSM-5 (APA, 2013) · CID-11 (OMS, 2022) · ABD · Snowling & Hulme (2012)</span>
   </div>
 
 </div>
-
 </body>
 </html>
